@@ -43,12 +43,31 @@ const isFabioPresent = teachers.indexOf("Fabio") !== -1;
 console.log(isFabioPresent);
 
 // 5. Unisci tutti gli insegnanti nell'array teachers in una stringa  separata da virgole e salvala nella variabile teachersString
-let teachersString = teachers[0];
+let teachersString = null; // modifico const in let in quanto devo modificare la variabile 
 
-console.log(teachersString);
+for (i = 0; i < teachers.length; i++) {
+  thisTeacher = teachers[i];
 
-for (i = 1; i < teachers.length; i++) {
-  teachersString.concat(teachers[i], ",")
+  if (i === 0) {
+    teachersString = thisTeacher + ","
+  } else if (i < (teachers.length - 1)) {
+    teachersString = teachersString + thisTeacher + ","
+  } else {
+    teachersString = teachersString + thisTeacher
+  }
 }
 
 console.log(teachersString);
+
+/* metodo usando la funzione concat()
+for (i = 0; i < teachers.length; i++) {
+  thisTeacher = teachers[i];
+  if (i === 0) {
+    teachersString = thisTeacher.concat(",")
+  } else if (i < (teachers.length - 1)) {
+    teachersString = teachersString.concat(thisTeacher, ",")
+  } else {
+    teachersString = teachersString.concat(thisTeacher)
+  }
+} 
+*/
